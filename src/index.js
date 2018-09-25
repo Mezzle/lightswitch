@@ -7,22 +7,27 @@ const Luxafor = require("luxafor-api");
 let mainWindow;
 
 const device = new Luxafor();
-device.setColor("#fff");
+device.setColor("#000");
 
 const createWindow = () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({ width: 800, height: 600 });
-  device.setColor("#f00");
+  device.setColor("#f00", 0x01);
+  device.setColor("#00f", 0x02);
+  device.setColor("#0F0", 0x03);
+  device.setColor("#FFF", 0x04);
+  device.setColor("#F0f", 0x05);
+  device.setColor("#0FF", 0x06);
 
   // and load the index.html of the app.
-  mainWindow.loadFile("index.html");
+  mainWindow.loadFile(__dirname + "/index.html");
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on("closed", function() {
-    device.setColor("#fff");
+    device.setColor("#000");
 
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
@@ -40,6 +45,8 @@ app.on("ready", createWindow);
 app.on("window-all-closed", function() {
   // On OS X it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
+  device.setColor("#000");
+
   if (process.platform !== "darwin") {
     app.quit();
   }
