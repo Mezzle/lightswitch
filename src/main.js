@@ -22,14 +22,26 @@ const modes = {
 };
 
 const ready = () => {
-  if (process.platform === 'darwin') {
-    app.dock.hide();
-  }
+  // if (process.platform === 'darwin') {
+  //   app.dock.hide();
+  // }
 
   tray = new Tray(modes.off.icon);
+  const menuTemplate = [];
+
+  for (let mode of Object.values(modes)) {
+    menuTemplate.push({
+      ...mode,
+      click: () => {
+        tray.setImage(mode.icon);
+        mode.click();
+      }
+    });
+  }
+
   const contextMenu = Menu.buildFromTemplate([
-    ...Object.values(modes),
-    { label: 'Quit', click: () => app.quit() }
+    ...menuTemplate,
+    { role: 'quit' }
   ]);
 
   tray.setToolTip('Lightswitch');
@@ -38,7 +50,7 @@ const ready = () => {
 
 app.on('ready', ready);
 
-app.on('activate', function() {
+app.on('activate', () => {
   if (tray === null) {
     ready();
   }
