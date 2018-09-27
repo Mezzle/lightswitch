@@ -1,5 +1,10 @@
 const { app, Menu, Tray, BrowserWindow } = require('electron');
 const luxafor = require('./utils/luxafor');
+const Sentry = require('@sentry/electron');
+
+Sentry.init({
+  dsn: 'https://50d8066f54574556afa1cf2efff73249@sentry.io/1289792'
+});
 
 let tray;
 
@@ -22,9 +27,9 @@ const modes = {
 };
 
 const ready = () => {
-  // if (process.platform === 'darwin') {
-  //   app.dock.hide();
-  // }
+  if (process.platform === 'darwin') {
+    app.dock.hide();
+  }
 
   tray = new Tray(modes.off.icon);
   const menuTemplate = [];

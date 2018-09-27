@@ -21,6 +21,7 @@
     "prettier": "^1.14.3"
   },
   "dependencies": {
+    "@sentry/electron": "0.11.0",
     "luxafor-api": "^2.0.0"
   }
 }
