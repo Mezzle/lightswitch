@@ -1,27 +1,35 @@
 {
-  "name": "electron-quick-start",
-  "version": "1.0.0",
-  "description": "A minimal Electron application",
-  "main": "src/main.js",
+  "name": "lightswitch",
+  "productName": "Light Switch",
+  "version": "0.0.1",
+  "license": "MIT",
   "scripts": {
-    "start": "electron src/main.js"
-  },
-  "repository": "https://github.com/electron/electron-quick-start",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
-  ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
-  "devDependencies": {
-    "electron": "^2.0.0",
-    "prettier": "^1.14.3"
+    "dev": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "dist": "yarn compile && electron-builder",
+    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
   },
   "dependencies": {
-    "@sentry/electron": "0.11.0",
-    "luxafor-api": "^2.0.0"
+    "@sentry/electron": "^0.11.0",
+    "luxafor-api": "^2.0.0",
+    "source-map-support": "^0.5.9"
+  },
+  "devDependencies": {
+    "electron": "2.0.7",
+    "electron-builder": "^20.28.1",
+    "electron-webpack": "^2.1.2",
+    "webpack": "^4.16.5"
+  },
+  "resolutions": {
+    "upath": "^1.0.5"
+  },
+  "electronWebpack": {
+    "commonSourceDirectory": "src/common",
+    "main": {
+      "sourceDirectory": "src/main"
+    },
+    "renderer": {
+      "sourceDirectory": null
+    }
   }
 }

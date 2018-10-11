@@ -1,6 +1,10 @@
-const { app, Menu, Tray, BrowserWindow } = require('electron');
-const luxafor = require('./utils/luxafor');
-const Sentry = require('@sentry/electron');
+'use strict';
+
+import { app, Menu, Tray } from 'electron';
+import luxafor from 'common/luxafor';
+import * as Sentry from '@sentry/electron';
+
+const isDevelopment = process.env.NODE_ENV !== 'production';
 
 Sentry.init({
   dsn: 'https://50d8066f54574556afa1cf2efff73249@sentry.io/1289792'
@@ -11,17 +15,17 @@ let tray;
 const modes = {
   off: {
     label: 'Off',
-    icon: `${__dirname}/icons/switch.png`,
+    icon: `${__static}/icons/switch.png`,
     click: () => luxafor.fadeTo('#000')
   },
   green: {
     label: 'Ok',
-    icon: `${__dirname}/icons/checkmark.png`,
+    icon: `${__static}/icons/checkmark.png`,
     click: () => luxafor.fadeTo('#0f0')
   },
   red: {
     label: 'Busy',
-    icon: `${__dirname}/icons/cross.png`,
+    icon: `${__static}/icons/cross.png`,
     click: () => luxafor.fadeTo('#f00')
   }
 };

@@ -1,0 +1,17 @@
+export const ALL = 0xff;
+export const BACK = 0x42;
+export const BACK_BOTTOM = 0x04;
+export const BACK_MIDDLE = 0x05;
+export const BACK_TOP = 0x06;
+export const FLAG = 0x41;
+export const FLAG_BOTTOM = 0x01;
+export const FLAG_MIDDLE = 0x02;
+export const FLAG_TOP = 0x03;
+export const FRONT = 0x41;
+export const FRONT_BOTTOM = 0x01;
+export const FRONT_MIDDLE = 0x02;
+export const FRONT_TOP = 0x03;
+export const REAR = 0x42;
+export const REAR_BOTTOM = 0x04;
+export const REAR_MIDDLE = 0x05;
+export const REAR_TOP = 0x06;
