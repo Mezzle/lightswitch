@@ -3,6 +3,8 @@
 import { app, Menu, Tray } from 'electron';
 import luxafor from 'common/luxafor';
 import * as Sentry from '@sentry/electron';
+import log from 'electron-log';
+import { autoUpdater } from 'electron-updater';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -11,6 +13,10 @@ Sentry.init({
 });
 
 let tray;
+
+autoUpdater.logger = log;
+autoUpdater.logger.transports.file.level = 'info';
+log.info('App starting...');
 
 const modes = {
   off: {
@@ -31,6 +37,8 @@ const modes = {
 };
 
 const ready = () => {
+  autoUpdater.checkForUpdatesAndNotify();
+
   if (process.platform === 'darwin') {
     app.dock.hide();
   }
