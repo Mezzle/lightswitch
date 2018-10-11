@@ -8,7 +8,7 @@
     "compile": "electron-webpack",
     "dist": "yarn compile && electron-builder",
     "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null",
-    "release": "build"
+    "release": "yarn compile && yarn build -mwl"
   },
   "dependencies": {
     "@sentry/electron": "^0.11.0",
