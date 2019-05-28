@@ -21,7 +21,7 @@
     "electron": "^2.0.8",
     "electron-builder": "^20.28.1",
     "electron-webpack": "^2.1.2",
-    "webpack": "^4.16.5"
+    "webpack": "^4.32.2"
   },
   "resolutions": {
     "upath": "^1.0.5"
