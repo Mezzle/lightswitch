@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@sentry/electron": "^0.17.1",
-    "electron-log": "^2.2.17",
+    "electron-log": "^3.0.6",
     "electron-updater": "^4.0.6",
     "luxafor-api": "git+https://github.com/mezzle/luxafor.git",
     "source-map-support": "^0.5.12"
