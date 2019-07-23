@@ -11,7 +11,7 @@
     "release": "yarn compile && yarn build"
   },
   "dependencies": {
-    "@sentry/electron": "^0.17.1",
+    "@sentry/electron": "^0.17.3",
     "electron-log": "^3.0.6",
     "electron-updater": "^4.0.6",
     "luxafor-api": "git+https://github.com/mezzle/luxafor.git",
